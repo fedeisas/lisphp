@@ -13,7 +13,7 @@
          verbose="true"
 >
     <testsuites>
-        <testsuite name="TicTacToe Test Suite">
+        <testsuite name="LisPhp Test Suite">
             <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
