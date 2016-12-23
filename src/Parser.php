@@ -11,7 +11,7 @@ class Parser
      *
      * @return array
      */
-    public static function parse($input) : array
+    public static function parse(string $input) : array
     {
         $input = static::cleanup($input);
 
