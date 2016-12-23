@@ -21,14 +21,14 @@ $console
     ->setDescription('Parse Lisp expression')
     ->setCode(function (InputInterface $input, OutputInterface $output) {
         if ($input->getOption('file')) {
-            $code = file_get_contents($input->getOption('file'));
+            $lispProgram = file_get_contents($input->getOption('file'));
         } elseif ($input->getArgument('code')) {
-            $code = $input->getArgument('code');
+            $lispProgram = $input->getArgument('code');
         } else {
             throw new RuntimeException('No code to parse');
         }
 
-        $parsed = Parser::parse($code);
+        $parsed = Parser::parse($lispProgram);
         $output->writeln('<info>' . json_encode($parsed) . '</info>');
     });
 
