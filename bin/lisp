@@ -1,0 +1,35 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use LisPhp\Parser;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
+
+$console = new Application('Lisp');
+
+$console
+    ->register('parse')
+    ->setDefinition([
+        new InputArgument('code', InputArgument::OPTIONAL, 'Code to parse'),
+        new InputOption('file', 'f', InputOption::VALUE_OPTIONAL, 'File to parse'),
+    ])
+    ->setDescription('Parse Lisp expression')
+    ->setCode(function (InputInterface $input, OutputInterface $output) {
+        if ($input->getOption('file')) {
+            $code = file_get_contents($input->getOption('file'));
+        } elseif ($input->getArgument('code')) {
+            $code = $input->getArgument('code');
+        } else {
+            throw new RuntimeException('No code to parse');
+        }
+
+        $parsed = Parser::parse($code);
+        $output->writeln('<info>' . json_encode($parsed) . '</info>');
+    });
+
+$console->run();
