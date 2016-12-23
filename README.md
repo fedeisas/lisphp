@@ -1,7 +1,11 @@
 # LisPHP
 
+[![Author](https://img.shields.io/badge/author-@fedeisas-blue.svg?style=flat-square)](https://twitter.com/fedeisas)
+[![License](https://img.shields.io/badge/license-MIT%20License-blue.svg)](https://github.com/fedeisas/lisphp/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/fedeisas/lisphp.svg?branch=master)](https://travis-ci.org/fedeisas/lisphp)
 [![StyleCI](https://styleci.io/repos/76986852/shield?branch=master)](https://styleci.io/repos/76986852)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/fedeisas/lisphp/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/fedeisas/lisphp/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/fedeisas/lisphp/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/fedeisas/lisphp/?branch=master)
 
 ## What's this
 
