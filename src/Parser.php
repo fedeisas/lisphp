@@ -95,7 +95,7 @@ class Parser
     }
 
     /**
-     * Cleanups extra spaces
+     * Cleanups extra spaces.
      *
      * @param string $input
      *

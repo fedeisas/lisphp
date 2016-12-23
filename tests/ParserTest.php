@@ -21,6 +21,7 @@ class ParserTest extends PHPUnit_Framework_TestCase
     /**
      * @expectedException RuntimeException
      * @expectedExceptionMessage Invalid syntax
+     *
      * @param string $input
      * @dataProvider getBadParseCases
      */
