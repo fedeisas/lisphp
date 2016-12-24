@@ -85,9 +85,7 @@ class Parser
      */
     private static function atom($value)
     {
-        if (is_bool($value)) {
-            return (bool) $value;
-        } elseif (is_numeric($value)) {
+        if (is_numeric($value)) {
             return is_float($value) ? (float) $value : (int) $value;
         } else {
             return $value;
