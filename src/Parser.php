@@ -25,7 +25,7 @@ class Parser
      *
      * @return array
      */
-    private static function readFromTokens(array &$tokens)
+    protected static function readFromTokens(array &$tokens)
     {
         if (count($tokens) === 0) {
             throw new RuntimeException('Unexpected EOF while reading');
@@ -61,7 +61,7 @@ class Parser
      *
      * @return array $tokens
      */
-    private static function tokenize(string $input) : array
+    protected static function tokenize(string $input) : array
     {
         $tokens = array_filter(
             explode(
@@ -83,7 +83,7 @@ class Parser
      *
      * @return mixed
      */
-    private static function atom($value)
+    protected static function atom($value)
     {
         if (is_numeric($value)) {
             return is_float($value) ? (float) $value : (int) $value;
@@ -99,7 +99,7 @@ class Parser
      *
      * @return string $input
      */
-    private static function cleanup($input)
+    protected static function cleanup($input)
     {
         $input = preg_replace('/\s+/', ' ', $input);
         $input = preg_replace('/\(\s+/', ' (', $input);
