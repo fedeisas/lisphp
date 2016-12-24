@@ -31,6 +31,15 @@ class ParserTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @expectedException RuntimeException
+     * @expectedExceptionMessage Unexpected EOF while reading
+     */
+    public function testParseEmptyProgram() : void
+    {
+        Parser::parse('');
+    }
+
+    /**
      * @return array
      */
     public function getGoodParseCases() : array
