@@ -3,6 +3,8 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use LisPhp\Environment\StdEnvironment;
+use LisPhp\Evaluator;
 use LisPhp\Parser;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputArgument;
@@ -30,6 +32,30 @@ $console
 
         $parsed = Parser::parse($lispProgram);
         $output->writeln('<info>' . json_encode($parsed) . '</info>');
+    });
+
+$console
+    ->register('run')
+    ->setDefinition([
+        new InputArgument('code', InputArgument::OPTIONAL, 'Code to run'),
+        new InputOption('file', 'f', InputOption::VALUE_OPTIONAL, 'File to run'),
+    ])
+    ->setDescription('Run Lisp expression')
+    ->setCode(function (InputInterface $input, OutputInterface $output) {
+        if ($input->getOption('file')) {
+            $lispProgram = file_get_contents($input->getOption('file'));
+        } elseif ($input->getArgument('code')) {
+            $lispProgram = $input->getArgument('code');
+        } else {
+            throw new RuntimeException('No code to parse');
+        }
+
+        $parsed = Parser::parse($lispProgram);
+
+        $environment = new StdEnvironment();
+        $evaluator = new Evaluator($environment);
+
+        $output->writeln('<info>' . $evaluator->run($parsed) . '</info>');
     });
 
 $console->run();
