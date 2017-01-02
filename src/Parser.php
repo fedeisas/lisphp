@@ -68,7 +68,7 @@ class Parser
                 ' ',
                 str_replace(['(', ')'], [' ( ', ' ) '], $input)
             ),
-            function ($value) {
+            function($value) {
                 return $value !== '';
             }
         );
