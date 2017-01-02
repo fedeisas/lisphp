@@ -31,7 +31,7 @@ class EvaluatorTest extends PHPUnit_Framework_TestCase
         return [
             [
                 '(+ 10 2 (define a 5) (- a 3))',
-                14
+                14,
             ],
             [
                 '(+ 2 (+ 3 4) 9)',

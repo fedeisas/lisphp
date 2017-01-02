@@ -59,7 +59,7 @@ class StdEnvironment extends Environment
             'define' => function () {
                 list($name, $value) = func_get_arg(0);
                 $this[$name] = $value;
-            }
+            },
         ];
     }
 }
