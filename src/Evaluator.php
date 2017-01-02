@@ -18,7 +18,7 @@ class Evaluator
         } elseif (is_string($program) || is_numeric($program) || !is_array($program)) {
             return $program;
         } elseif ($program[0] == 'if') {
-            list($_, $test, $consequence, $alternative) = $program;
+            list(, $test, $consequence, $alternative) = $program;
             $expression = ($this->run($test) ? $consequence : $alternative);
 
             return $this->run($expression);
